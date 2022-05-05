@@ -147,6 +147,13 @@
 
                 // закрываем диалоговое окно
                 this.$store.state.dialogVisible = false;
+
+                // Востанавливаем кнопки по умолчанию
+                // скрываем кнопку создания банка
+                this.$store.state.btnCreateBankVisible = true;
+
+                // показываем кнопку редактирования банка
+                this.$store.state.btnEditBankVisible = false;
             }
         },
         mounted() {
@@ -162,7 +169,7 @@
                 console.log(arrEditBank[0].id);
 
                 let id = this.$store.state.editBank[0].id;
-                this.bank.name = id + this.$store.state.editBank[0].name;
+                this.bank.name = this.$store.state.editBank[0].name;
                 this.bank.interestRate = this.$store.state.editBank[0].interestRate;
                 this.bank.maxLoan = this.$store.state.editBank[0].maxLoan;
                 this.bank.minDownPayment = this.$store.state.editBank[0].minDownPayment;

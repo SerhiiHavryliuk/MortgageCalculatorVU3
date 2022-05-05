@@ -1,6 +1,7 @@
 <template>
     <div class="bank-item_container">
-        <div class="bank-item_data"> {{bank.id}} - {{bank.name}}</div>
+<!--        <div class="bank-item_data"> {{bank.id}} - {{bank.name}}</div>-->
+        <div class="bank-item_data"> {{bank.name}}</div>
         <div class="bank-item_data"> {{bank.interestRate}}</div>
         <div class="bank-item_data"> {{bank.maxLoan}}</div>
         <div class="bank-item_data"> {{bank.minDownPayment}}</div>

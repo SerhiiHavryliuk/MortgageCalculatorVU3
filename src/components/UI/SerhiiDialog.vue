@@ -21,11 +21,18 @@
             }
         },
         methods: {
-            // функция заурытия диалога
+            // функция закрытия диалога
             // если мы кликаем вне диалога то окно закрывается
             hideDialog() {
                 console.log(77777)
                 this.$emit('update:show', false)
+
+                // Востанавливаем кнопки по умолчанию
+                // скрываем кнопку создания банка
+                this.$store.state.btnCreateBankVisible = true;
+
+                // показываем кнопку редактирования банка
+                this.$store.state.btnEditBankVisible = false;
             }
         }
     }
