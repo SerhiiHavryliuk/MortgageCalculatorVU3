@@ -8,7 +8,6 @@
             <div class="bank-item_data"> Loan term</div>
             <div class="bank-item_data">
                 <serhii-btn @click="$store.commit('showDialog')">add new bank</serhii-btn>
-                <!--                <serhii-btn @click="$store.commit('addBank')">add new bank</serhii-btn>-->
             </div>
         </div>
     </div>
@@ -30,7 +29,6 @@
         />
     </serhii-dialog>
 
-
 </template>
 
 <script>
@@ -42,6 +40,7 @@
         components: {BankForm, BankItem},
         data() {
             return {
+                // для теста
                 // banks: [
                 //     {
                 //         id: 1,
@@ -86,11 +85,7 @@
                 // ],
             }
         },
-        methods: {
-            // addNewBank(){
-            //
-            // }
-        }
+        methods: {}
     }
 </script>
 
@@ -102,7 +97,7 @@
         color: #000;
         background-color: #fff;
         border-radius: 4px;
-        box-shadow: 0 1px 5px rgb(0 0 0 / 20%), 0 2px 2px rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%);
+        box-shadow: 0 1px 5px rgb(0 0 0/20%), 0 2px 2px rgb(0 0 0/14%), 0 3px 1px -2px rgb(0 0 0/12%);
     }
 
     .bank-item_header {
@@ -121,11 +116,6 @@
         align-items: center;
         padding: 6px;
         width: calc(100% / 6);
-    }
-
-    .bank-item__btns {
-        display: flex;
-        justify-content: space-around;
     }
 
 </style>

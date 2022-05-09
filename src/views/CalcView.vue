@@ -12,7 +12,7 @@
                 </select>
             </div>
 
-            <div v-if="showSelectedBank" class="selectedBank">
+            <div class="selectedBank" v-if="showSelectedBank">
                 <div class="bank-item_container bank-item_header">
                     <div class="bank-item_data"> Bank name</div>
                     <div class="bank-item_data"> Interest rate</div>
@@ -69,13 +69,13 @@
 
                     <div class="bank-input-item calcResult">
                         <p> Mounthly payment: <span>{{resultCalc}}</span></p>
-                        <serhii-btn @click="calcMounthlyPayment"> calc </serhii-btn>
+                        <serhii-btn @click="calcMounthlyPayment"> calc</serhii-btn>
                     </div>
 
                 </div>
             </div>
 
-            <div class="calcError">{{msgCalcError}}  </div>
+            <div class="calcError">{{msgCalcError}}</div>
         </div>
 
     </div>
@@ -110,61 +110,57 @@
                 // скрываем блок с ошибками
                 this.hideError();
             },
-            calcMounthlyPayment(event){
+            calcMounthlyPayment(event) {
                 console.log(2222);
                 let resultMounthlyPayment = '';
 
                 // считываем значения с инпутов, которые ввел пользователь
-                let userInitialLoan    = parseInt(this.initiaLloan);
-                let userDownPayment    = parseInt(this.downPayment);
-                let userTotalMouns     = parseInt(this.totalMonths);
+                let userInitialLoan = parseInt(this.initiaLloan);
+                let userDownPayment = parseInt(this.downPayment);
+                let userTotalMouns = parseInt(this.totalMonths);
 
                 // считываем значения с текущего банка (который показан нв стр.)
-                let interestRate       = parseInt(this.selectedBank.interestRate);
-                let maximumLoan        = parseInt(this.selectedBank.maxLoan);
+                let interestRate = parseInt(this.selectedBank.interestRate);
+                let maximumLoan = parseInt(this.selectedBank.maxLoan);
                 let minimumDownPayment = parseInt(this.selectedBank.minDownPayment);
-                let loanTerm           = parseInt(this.selectedBank.loanTerm);
+                let loanTerm = parseInt(this.selectedBank.loanTerm);
 
                 // скрываем блок с ошибками
                 this.hideError();
 
                 // проверка правильности заполнения полей формы
-                if((userInitialLoan >= minimumDownPayment) && (userInitialLoan <= maximumLoan) && (userTotalMouns > 0) && (userTotalMouns <= loanTerm)){
+                if ((userInitialLoan >= minimumDownPayment) && (userInitialLoan <= maximumLoan) && (userTotalMouns > 0) && (userTotalMouns <= loanTerm)) {
                     // подставляем все значения в формулу и делаем расчет
                     // ! не забывае перевести процентную ставку в число
-                    resultMounthlyPayment = ((userInitialLoan-userDownPayment) * (interestRate / 1200) * Math.pow(1 + interestRate / 1200, userTotalMouns)) / (Math.pow(1 + interestRate / 1200, userTotalMouns) - 1);
-                    this.resultCalc= resultMounthlyPayment.toFixed(2);
-                } else{
+                    resultMounthlyPayment = ((userInitialLoan - userDownPayment) * (interestRate / 1200) * Math.pow(1 + interestRate / 1200, userTotalMouns)) / (Math.pow(1 + interestRate / 1200, userTotalMouns) - 1);
+                    this.resultCalc = resultMounthlyPayment.toFixed(2);
+                } else {
                     // показываем тескт ошибки если поля были заполнены неправильно
-                    if(!(userInitialLoan >= minimumDownPayment)){
+                    if (!(userInitialLoan >= minimumDownPayment)) {
                         this.showError("Please provide a correct min Initial loan value.");
                         console.log(userInitialLoan);
                         console.log(minimumDownPayment);
                         console.log((userInitialLoan >= minimumDownPayment));
                     }
-                    if(!(userInitialLoan <= maximumLoan)){
+                    if (!(userInitialLoan <= maximumLoan)) {
                         this.showError("Please provide a correct max Initial loan value.");
                         console.log(userInitialLoan);
                         console.log(maximumLoan);
                         console.log((userInitialLoan <= maximumLoan));
                     }
-                    if(!(userTotalMouns <= loanTerm)){
+                    if (!(userTotalMouns <= loanTerm)) {
                         this.showError("Please provide a correct Total months value.");
                     }
-                    if(!(userTotalMouns > 0)){
+                    if (!(userTotalMouns > 0)) {
                         this.showError("Please provide a correct Total months value.");
                     }
                 }
-
-                return resultMounthlyPayment;
-
-
             },
-            showError(textError){
+            showError(textError) {
                 console.log(textError);
                 this.msgCalcError = textError;
             },
-            hideError(){
+            hideError() {
                 this.msgCalcError = '';
                 console.log("hideError")
             }
@@ -176,42 +172,47 @@
 </script>
 
 <style scoped>
-    .bank-input-item{
+    .bank-input-item {
         display: flex;
         justify-content: space-between;
         margin: 10px 0;
     }
-    .bank-input-item p{
+
+    .bank-input-item p {
         display: flex;
         align-items: center;
         width: 30%;
         text-align: left;
         margin: 0;
     }
-    .bank-input-item input{
+
+    .bank-input-item input {
         width: 70%;
     }
-    .calcError{
+
+    .calcError {
         color: #cc2c24;
     }
-    .calc-select-container{
+
+    .calc-select-container {
         display: flex;
     }
-    .calc-select-container p{
+
+    .calc-select-container p {
         display: flex;
         align-items: center;
         width: 30%;
         margin: 0;
         font-weight: bold;
     }
-    .calc-select-container select{
+
+    .calc-select-container select {
         width: 70%;
     }
-    .calcResult{
+
+    .calcResult {
         color: darkcyan;
         font-size: 1.2rem;
         font-weight: bold;
     }
-
-
 </style>

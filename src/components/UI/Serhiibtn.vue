@@ -3,7 +3,7 @@
         <!--// все что ьы помещаем внутры кнопки будет уходить в тег <slot></slot>-->
         <slot/>
     </button>
-    
+
 </template>
 
 <script>
@@ -41,15 +41,18 @@
     }
 
     /* классы модификаторы*/
-    .btn_edit{
+    .btn_edit {
         background: rgb(8, 162, 162);
     }
-    .btn_edit:hover{
+
+    .btn_edit:hover {
         background: darkcyan;
     }
-    .btn_delete{
+
+    .btn_delete {
         background: #d33c40;
     }
+
     .btn_delete:hover {
         background: #a71b20;
     }

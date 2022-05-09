@@ -54,15 +54,15 @@
                 </div>
 
                 <serhii-btn
-                        v-show="$store.state.btnCreateBankVisible"
                         @click="createBank"
+                        v-show="$store.state.btnCreateBankVisible"
                 >
                     create
                 </serhii-btn>
 
                 <serhii-btn
-                        v-show="$store.state.btnEditBankVisible"
                         @click="editBank"
+                        v-show="$store.state.btnEditBankVisible"
                 >
                     editBank
                 </serhii-btn>
@@ -73,12 +73,9 @@
 </template>
 
 <script>
-    import SerhiiBtn from "./UI/Serhiibtn";
-    import SerhiiInput from "./UI/SerhiiInput";
 
     export default {
         name: "bank-form",
-        components: {SerhiiInput, SerhiiBtn},
         data() {
             return {
                 bank: {
@@ -101,17 +98,19 @@
                         loanTerm: ''
                     }
                 ],
-
             }
         },
         methods: {
             createBank() {
                 // создаем уникальный ID
                 this.bank.id = Date.now();
+
                 // с помощью модели bank считываем все значения с формы и помещаем из в переменную в хранилище VUEX
                 this.$store.state.newBank = this.bank;
+
                 // вызываем метод из VUEX который добавляет новый банк в localStorage
                 this.$store.commit('addBank');
+
                 // очистка полей формы
                 this.bank = {
                     id: '',
@@ -121,10 +120,11 @@
                     minDownPayment: '',
                     loanTerm: ''
                 };
+
                 // закрываем диалоговое окно
                 this.$store.commit('hideDialog')
             },
-            editBank(){
+            editBank() {
                 console.log("Edit bank");
 
                 // получаем массив всех банков
@@ -163,7 +163,7 @@
             // это нужно так как вдугих файлах нужно отслеживать состояние формы
             // если форма была открыта через кнопку edit то нужно автоматом заполнять поля формы
             // иначе нужно их очищать или ничего не делать
-            if (this.$store.state.btnEdtitBankIsClick){
+            if (this.$store.state.btnEdtitBankIsClick) {
                 // получаем банк который нужно изменить тз VUEX
                 let arrEditBank = this.$store.state.editBank;
                 console.log(arrEditBank[0].id);
@@ -194,5 +194,4 @@
         max-width: 100%;
         line-height: 1;
     }
-
 </style>

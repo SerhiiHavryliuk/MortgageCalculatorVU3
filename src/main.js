@@ -5,6 +5,7 @@ import store from './store'
 
 // Serhii import собственные стили
 import '@/assets/css/normalize.css'
+
 // Serhii import from node modules
 // import 'normalize.css/normalize.css'
 
@@ -20,4 +21,4 @@ allMyComponents.forEach(component => {
     app.component(component.name, component);
 });
 
-app.use(store).use(router).mount('#app')
+app.use(store).use(router).mount('#app');

@@ -16,10 +16,10 @@
         // mounted - хук - это метод из жизненного цикла компонента,
         // который выполняется перед созанием элемента
         mounted() {
-            console.log(22)
-          if(!localStorage.banks){
-            localStorage.setItem('banks', '');
-          }
+            console.log("app mounted")
+            if (!localStorage.banks) {
+                localStorage.setItem('banks', '');
+            }
 
         },
         // наблюдаэмые свойства VUE

@@ -1,13 +1,10 @@
 <template>
     <!--    // @click:stop - stop propagation - убираем всплытие событий-->
     <!--    // для того чтобы при нажатии на диалоговое окноб оно не закрывалось-->
-    <div v-if="show === true" class="dialog" @click.stop="hideDialog">
+    <div @click.stop="hideDialog" class="dialog" v-if="show === true">
         <div @click.stop class="dialog__content">
-            <slot>
-
-            </slot>
+            <slot></slot>
         </div>
-
     </div>
 </template>
 
@@ -24,7 +21,7 @@
             // функция закрытия диалога
             // если мы кликаем вне диалога то окно закрывается
             hideDialog() {
-                console.log(77777)
+                console.log("hideDialog")
                 this.$emit('update:show', false)
 
                 // Востанавливаем кнопки по умолчанию

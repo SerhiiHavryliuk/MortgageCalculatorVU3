@@ -133,7 +133,6 @@ export default createStore({
             state.btnEdtitBankIsClick = true;
         },
 
-
         // сохраняем новое значение в localtorage
         saveDataInLocalStorage(state, data) {
             // обновляем значение в localtorage

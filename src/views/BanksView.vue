@@ -7,12 +7,13 @@
 
 <script>
     import BankList from "../components/BankList";
+
     export default {
         name: 'banks-view',
         components: {BankList},
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 
 </style>

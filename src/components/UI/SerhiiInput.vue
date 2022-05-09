@@ -1,10 +1,10 @@
 <template>
-<!--    // !!! Serhii:-->
-<!--    // Была проблема сделать двухсторонее связываение в компоненте-->
-<!--    // я в компонент передаю значение-->
-<!--    // нужно гуглить -  Использование v-model на компонентах-->
-<!--    // помогло https://ru.vuejs.org/v2/guide/components.html#:~:text=v%2Dbind%3Avalue%3D%22value%22-->
-    <input :value="modelValue" @input="updateInput" v-bind:value="value" type="text">
+    <!--    // !!! Serhii:-->
+    <!--    // Была проблема сделать двухсторонее связываение в компоненте-->
+    <!--    // я в компонент передаю значение-->
+    <!--    // нужно гуглить -  Использование v-model на компонентах-->
+    <!--    // помогло https://ru.vuejs.org/v2/guide/components.html#:~:text=v%2Dbind%3Avalue%3D%22value%22-->
+    <input :value="modelValue" @input="updateInput" type="text" v-bind:value="value">
 </template>
 
 <script>
