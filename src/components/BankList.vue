@@ -8,14 +8,16 @@
             <div class="bank-item_data"> Loan term</div>
             <div class="bank-item_data">
                 <serhii-btn @click="$store.commit('showDialog')">add new bank</serhii-btn>
-<!--                <serhii-btn @click="$store.commit('addBank')">add new bank</serhii-btn>-->
+                <!--                <serhii-btn @click="$store.commit('addBank')">add new bank</serhii-btn>-->
             </div>
         </div>
     </div>
 
+    <!--  :bankBtns=true - показываем кнопки edit/del -->
     <div class="bank-list_container">
         <bank-item
                 :bank="bank"
+                :bankBtns=true
                 :key="bank.id"
                 v-for="bank in $store.state.banks"
         />
