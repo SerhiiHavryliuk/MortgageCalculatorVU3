@@ -52,7 +52,15 @@ export default createStore({
         newBank: '',
         editBank: [],
         indexEditBank: '',
-
+        selectedBank:
+            {
+                id: 1,
+                name: ' Selected Name of bank',
+                interestRate: '10',
+                maxLoan: "1000",
+                minDownPayment: "10",
+                loanTerm: "12"
+            },
         // диалоговое окно добавление нового банка
         dialogVisible: false,
         // по умолчанию показыаем кнопку создания банка

@@ -1,12 +1,12 @@
 <template>
     <div class="bank-item_container">
-<!--        <div class="bank-item_data"> {{bank.id}} - {{bank.name}}</div>-->
+        <!--        <div class="bank-item_data"> {{bank.id}} - {{bank.name}}</div>-->
         <div class="bank-item_data"> {{bank.name}}</div>
         <div class="bank-item_data"> {{bank.interestRate}}</div>
         <div class="bank-item_data"> {{bank.maxLoan}}</div>
         <div class="bank-item_data"> {{bank.minDownPayment}}</div>
         <div class="bank-item_data"> {{bank.loanTerm}}</div>
-        <div class="bank-item_data">
+        <div class="bank-item_data" v-if="bankBtns">
             <div class="bank-item__btns">
                 <serhii-btn
                         @click="$store.commit('editBank', bank)"
@@ -30,6 +30,10 @@
             bank: {
                 type: Object,
                 required: true
+            },
+            bankBtns: {
+                type: Boolean,
+                required: false
             }
         }
     }
